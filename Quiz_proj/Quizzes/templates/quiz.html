@@ -1,0 +1,29 @@
+{% extends 'base.html' %}
+{% load static %}
+<link rel="stylesheet" href="{% static 'style.css'%}">
+{% block scripts %}
+<script src="{% static 'quiz.js'%}" defer></script>
+{% endblock scripts %}
+{% block title %}
+{{ quiz.name }} {{ quiz.topic }}
+{% endblock %}
+{% block content %}
+{{ quiz.name }} {{ quiz.topic }}
+<div class="row">
+    <div class="col">
+       Score to pass: {{quiz.required_score}}%
+    </div>
+    <div class="col text-right" id="timer-box">
+        Countdown
+    </div>
+</div>
+<br>
+<a class="btn btn-danger" href="{% url 'Quizzes:main_view' %}">Go back</a>
+<form id="quiz-form" class="mt-3 mb-3" id="quizform">
+    {% csrf_token %}
+    <div id="quiz-box">
+
+    </div>
+    <button type="submit" class="btn btn-primary mt-3" id="Save">Save</button>
+</form>
+{% endblock content %}

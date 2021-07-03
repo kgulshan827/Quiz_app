@@ -1,0 +1,28 @@
+{% extends 'base.html' %}
+{% load static %}
+<link rel="stylesheet" href="{% static 'style.css'%}">
+{% block scripts %}
+
+{% endblock scripts %}
+{% block title %}
+
+{% endblock %}
+{% block content %}
+<p>Your result</p>
+
+<div class="continer">
+    <div class="result">
+        <p>Quiz Name- {{ quiz.name }}</p>
+        <p>Quiz Topic- {{ quiz.topic }}</p>
+        {% if obj.score > 0 %}
+        <p>You Passed</p>
+        <p>Quiz score- {{obj.score }}</p>
+        {% else %}
+        <p>You Failed</p>
+        <p class="score">Quiz score- {{obj.score }}</p>
+{% endif %}
+       
+    </div>
+</div>
+
+{% endblock content %}

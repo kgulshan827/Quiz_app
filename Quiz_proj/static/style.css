@@ -1,0 +1,10 @@
+.hidden {
+    display: none;
+    display: block;
+}
+.result{
+    background-color: aqua
+}
+.score{
+    background-color: red;
+}

@@ -1,0 +1,17 @@
+{% extends 'base.html' %}
+{% load static %}
+<link rel="stylesheet" href="{% static 'style.css'%}">
+
+{% block title %}
+{{ quiz.name }} {{ quiz.topic }}
+{% endblock %}
+{% block content %}
+
+<form class="site-form" action="{% url 'Quizzes:create-view' %}" method="post" enctype="multipart/form-data">
+    {{ form.as_p  }}
+    {% csrf_token %}
+    
+
+<input type="submit" value="Save">
+</form>
+{% endblock %}
